@@ -420,6 +420,8 @@ bar <- function(a, b) {
 
 Note that inheritance works recursively, so you can inherit documentation from a function that has inherited it from elsewhere.
 
+Only parameters which are listed explicitly in the argument list of `bar` will be inherited. To inherit parameters that are not specified explicitly, but are forwarded to another function (say, `baz`) via `...`, use `@inheritDotParams baz`.
+
 ### Documenting multiple functions in the same file {#multiple-man}
 
 You can document multiple functions in the same file by using either `@rdname` or `@describeIn`. However, it's a technique best used with caution: documenting too many functions in one place leads to confusing documentation. You should use it when functions have very similar arguments, or have complementary effects (e.g., `open()` and `close()` methods).
